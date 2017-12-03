@@ -10,15 +10,15 @@ function initMap() {
 
   // This creates the Leaflet map with a generic start point, because code at bottom automatically fits bounds to all markers
   var map = L.map('map', {
-    center: [0, 0],
-    zoom: 5,
+    center: [42.189459, 71.542969],
+    zoom: 2,
     scrollWheelZoom: false
   });
 
   // This displays a base layer map (other options available)
-  var lightAll = new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
-  }).addTo(map);
+  var lightAll = new L.tileLayer('https://api.mapbox.com/styles/v1/rbarrio/cjamru0m8dwcz2smikxp2atmy/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoicmJhcnJpbyIsImEiOiJjajlndzZyNTgyeW92Mnd0NDAwczN0eG93In0.g-phLT8JQGhwbELYUjMFBA', {
+          attribution: 'mapbox'
+}).addTo(map);
 
   // This customizes link to view source code; add your own GitHub repository
   map.attributionControl
