@@ -52,6 +52,7 @@ body {
     margin: 10px;
     display: block;
     text-align: center;
+    padding-top: 30px;
     color: #fff;
 }
 
@@ -134,10 +135,11 @@ h3 {
     background-color: white;
 }
 
-@media only screen and (max-device-width: 480px) {
-  ::-webkit-scrollbar {
-      display: none;
-  }
+/* Resize and position page elements and force collapse for Mobile and tablets */
+        @media (max-width: 768px) {
+          ::-webkit-scrollbar {
+          display: none;
+          }
   #map {
     width: 100vw;
   }
