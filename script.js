@@ -24,18 +24,26 @@ function initMap() {
   map.attributionControl
   .setPrefix('View <a href="http://github.com/jackdougherty/leaflet-storymap" target="_blank">code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
 
+  var FlowerIcon = L.Icon.extend({
+	options: {
+		iconSize: [16,16],
+		iconAnchor: [12,15]
+	}
+});
   // This loads the GeoJSON map data file from a local folder
   $.getJSON('map.geojson', function(data) {
     var geojson = L.geoJson(data, {
-      onEachFeature: function (feature, layer) {
-        (function(layer, properties) {
-          // This creates numerical icons to match the ID numbers
-          // OR remove the next 6 lines for default blue Leaflet markers
-          var numericMarker = L.ExtraMarkers.icon({
-            icon: 'fa-leaf',
-            markerColor: 'pink'
-          });
-          layer.setIcon(numericMarker);
+      L.geoJson(data,{
+   	pointToLayer: function(feature,latLng) {
+   		return new L.Marker(latLng, {
+   			icon: new FlowerIcon({
+   				iconUrl: "img/library-" + feature.properties.date + ".png"
+   			})
+   		})
+   		}
+   }).addTo(map)
+});
+          
 
           // This creates the contents of each chapter from the GeoJSON data. Unwanted items can be removed, and new ones can be added
           var chapter = $('<p></p>', {
