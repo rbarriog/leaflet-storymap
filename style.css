@@ -134,10 +134,10 @@ h3 {
     background-color: white;
 }
 
-@media only screen and (max-device-width: 480px) {
-  ::-webkit-scrollbar {
-      display: none;
-  }
+@media (max-width: 768px) {
+          ::-webkit-scrollbar {
+          display: none;
+          }
   #map {
     width: 100vw;
   }
