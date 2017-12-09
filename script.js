@@ -24,11 +24,7 @@ function initMap() {
   map.attributionControl
   .setPrefix('View <a href="http://github.com/jackdougherty/leaflet-storymap" target="_blank">code on GitHub</a>, created with <a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
 
-  var FlowerIcon = L.Icon.extend({
-	options: {
-		iconSize: [16,16],
-		iconAnchor: [12,15]
-	}
+ 
 });
   // This loads the GeoJSON map data file from a local folder
   $.getJSON('map.geojson', function(data) {
